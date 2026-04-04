@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sehat Sahayata</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png">
+    <span>Sehat Sahayata</span>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="getinvolved.html">Get Involved</a>
+    <a href="appointment.html">Appointment</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Sehat Sahayata</h1>
+
+    <p class="tagline">
+      Jab Sahayata hai, to Sehat hai <br>
+      Sehat hai, to Zindagi hai
+    </p>
+
+    <p>Providing support to patients and families.</p>
+
+    <div class="buttons">
+      <button class="btn" onclick="location.href='contact.html'">Seek Support</button>
+      <button class="btn-outline" onclick="location.href='appointment.html'">Book Appointment</button>
+    </div>
+  </div>
+
+  <div class="hero-img">
+    <img src="image1.png">
+  </div>
+</section>
+
+<!-- CHATBOT -->
+<div class="chatbot">
+  <h3>Health Assistant 🤖</h3>
+  <div id="chatBox" class="chat-box"></div>
+  <input type="text" id="userInput" placeholder="Ask your problem...">
+  <button class="btn" onclick="chatbot()">Send</button>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

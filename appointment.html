@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Appointment - Sehat Sahayata</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png">
+    <span>Sehat Sahayata</span>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="getinvolved.html">Get Involved</a>
+    <a href="appointment.html">Appointment</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- MAIN SECTION -->
+<section class="appointment-section">
+
+  <!-- LEFT FORM -->
+  <div class="appointment-form">
+    <h1>Book Appointment</h1>
+
+    <form onsubmit="submitForm(); return false;" class="form">
+
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="aadhaar" placeholder="Aadhaar Number (12 digits)" required>
+
+      <textarea id="problem" placeholder="Describe your problem / symptoms" required></textarea>
+
+      <select id="person">
+        <option value="">Who is this appointment for?</option>
+        <option>Self</option>
+        <option>Family Member</option>
+        <option>Other</option>
+      </select>
+
+      <select id="doctor">
+        <option>General Physician</option>
+        <option>Cardiologist</option>
+        <option>Neurologist</option>
+        <option>Orthopedic</option>
+      </select>
+
+      <input type="date" id="date" required>
+
+      <button type="submit" class="btn">Submit Appointment</button>
+
+    </form>
+  </div>
+
+  <!-- RIGHT IMAGE -->
+  <div class="appointment-image"></div>
+
+</section>
+
+
+</body>
+</html>

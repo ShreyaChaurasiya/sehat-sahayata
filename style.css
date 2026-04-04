@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f8f9fa;
+}
+
+/* NAVBAR */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 45px;
+  margin-right: 10px;
+}
+
+.logo span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  height: 90vh;
+}
+
+.hero-text {
+  width: 50%;
+  padding: 80px;
+  background: #ffffff;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+  color: #111827;
+}
+
+.tagline {
+  margin: 20px 0;
+  color: #555;
+  border-left: 4px solid #007bff;
+  padding-left: 10px;
+}
+
+.hero-img {
+  width: 50%;
+}
+
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* BUTTONS */
+.buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  background: #007bff;
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+.btn-outline {
+  border: 2px solid #007bff;
+  padding: 12px 18px;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: #007bff;
+  color: white;
+}
+
+/* FULL BACKGROUND */
+.full-bg {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BLUR IMAGE */
+.full-bg::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* LIGHT OVERLAY (IMPORTANT FIX) */
+.full-bg::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(135, 206, 235, 0.15); /* very light sky blue */
+  z-index: 1;
+}
+
+/* TEXT CONTENT */
+.full-bg-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+  color: #111827;
+}
+
+.full-bg-content h1 {
+  color:#111827;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.full-bg-content p {
+  color: #111827;
+  font-size: 18px;
+}
+
+.appointment-section {
+  display: flex;
+  height: 90vh;
+}
+
+/* LEFT FORM */
+.appointment-form {
+  width: 50%;
+  padding: 60px;
+  background: #f8f9fa;
+}
+
+.appointment-form h1 {
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+/* RIGHT IMAGE */
+.appointment-image {
+  width: 50%;
+  background: url("image2.png") no-repeat center center/cover;
+}
+
+/* FORM */
+.form {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form input,
+.form textarea,
+.form select {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* CHATBOT */
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 400px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  padding: 0px;
+}
+
+.chat-box {
+  height: 100px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+  padding: 5px;
+}
