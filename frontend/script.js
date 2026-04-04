@@ -1,4 +1,5 @@
-function submitForm() {
+async function submitForm() {
+
   let name = document.getElementById("name").value.trim();
   let phone = document.getElementById("phone").value.trim();
   let email = document.getElementById("email").value.trim();
@@ -24,7 +25,7 @@ function submitForm() {
     return;
   }
 
-  // STORE DATA
+
   let appointment = {
     name,
     phone,
@@ -36,11 +37,25 @@ function submitForm() {
     date
   };
 
-  localStorage.setItem("appointmentData", JSON.stringify(appointment));
+  try {
+  const res = await fetch("http://localhost:8080/api/appointments", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(appointment)
+  });
 
-  alert("✅ Appointment Booked Successfully!");
+  if (res.ok) {
+    alert("✅ Appointment Booked Successfully!");
+  } else {
+    alert("❌ Error saving appointment");
+  }
 
-  document.querySelector("form").reset();
+} catch (err) {
+  alert("❌ Backend not connected");
+}
+
 }
 
 
@@ -109,44 +124,33 @@ const healthData = [
   }))
 ];
 
-function chatbot() {
+async function chatbot() {
 
   let inputField = document.getElementById("userInput");
-  let input = inputField.value.toLowerCase().trim();
+  let input = inputField.value.trim();
   let chatBox = document.getElementById("chatBox");
 
   if (!input) return;
 
-  let found = false;
-  let response = "";
 
-  
-  for (let item of healthData) {
-    for (let keyword of item.keywords) {
-
-      if (input.includes(keyword)) {
-        found = true;
-
-        if (item.severity === "high") {
-          response = `🚨 ${item.response} <br>👉 Doctor: ${item.doctor}`;
-        } else {
-          response = `${item.response} <br>👉 Doctor: ${item.doctor}`;
-        }
-
-        break;
-      }
-    }
-    if (found) break;
-  }
-
-  
-  if (!found) {
-    response = "❗ Sorry, I couldn’t understand. Please describe your symptoms clearly.";
-  }
-
-  
   chatBox.innerHTML += `<p><b>You:</b> ${input}</p>`;
-  chatBox.innerHTML += `<p><b>Bot:</b> ${response}</p>`;
+
+  try {
+    const res = await fetch("http://localhost:8080/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "text/plain"
+      },
+      body: input
+    });
+
+    const reply = await res.text();
+
+    chatBox.innerHTML += `<p><b>Bot:</b> ${reply}</p>`;
+
+  } catch (err) {
+    chatBox.innerHTML += `<p><b>Bot:</b> ❌ Server not responding</p>`;
+  }
 
   inputField.value = "";
   chatBox.scrollTop = chatBox.scrollHeight;
