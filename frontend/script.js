@@ -46,7 +46,7 @@ async function submitForm() {
     body: JSON.stringify(appointment)
   });
 
-  if (res.ok) {
+  if (res.ok ) {
     alert("✅ Appointment Booked Successfully!");
   } else {
     alert("❌ Error saving appointment");
