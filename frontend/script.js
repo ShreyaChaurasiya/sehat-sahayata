@@ -38,7 +38,7 @@ async function submitForm() {
   };
 
   try {
-  const res = await fetch("http://localhost:8080/api/appointments", {
+  const res = await fetch("https://sehat-sahayata-backend.onrender.com/api/appointments", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -53,6 +53,7 @@ async function submitForm() {
   }
 
 } catch (err) {
+  console.error(err);
   alert("❌ Backend not connected");
 }
 
