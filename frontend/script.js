@@ -46,16 +46,24 @@ async function submitForm() {
     body: JSON.stringify(appointment)
   });
 
-  if (res.ok ) {
-    alert("✅ Appointment Booked Successfully!");
-  } else {
-    alert("❌ Error saving appointment");
-  }
+  const data = await res.json();
+    console.log("Response:", data);
 
-} catch (err) {
-  console.error(err);
-  alert("❌ Backend not connected");
-}
+    if (res.ok) {
+      alert("✅ Appointment Booked Successfully!");
+
+      // ✅ Clear form after success
+      document.querySelector("form").reset();
+
+    } else {
+      alert("❌ Failed to save appointment");
+    }
+
+  } catch (err) {
+    console.error("Error:", err);
+    alert("❌ Backend not connected OR taking too long");
+    
+  }
 
 }
 
@@ -137,7 +145,7 @@ async function chatbot() {
   chatBox.innerHTML += `<p><b>You:</b> ${input}</p>`;
 
   try {
-    const res = await fetch("http://localhost:8080/api/chat", {
+    const res = await fetch("https://sehat-sahayata-backend.onrender.com/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "text/plain"
